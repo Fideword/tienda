@@ -1,0 +1,38 @@
+<!-- categorias.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Categorías</title>
+    <!-- Enlaces a las bibliotecas de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Categorías</h1>
+
+        <div class="mt-3">
+            {% if user.is_authenticated %}
+                <a href="{% url 'agregar_producto' %}" class="btn btn-success mb-3">Registrar Producto</a>
+                <a href="{% url 'agregar_categoria' %}" class="btn btn-success mb-3">Registrar Categoría</a>
+                <a href="{% url 'ver_carrito' %}" class="btn btn-info mb-3">Ver Carrito</a>
+                <a href="{% url 'logout' %}" class="btn btn-danger mb-3">Cerrar Sesión</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn btn-primary mb-3">Iniciar Sesión</a>
+            {% endif %}
+        </div>
+
+        <ul class="list-group mt-3">
+            {% for categoria in categorias %}
+                <li>
+                    <a href="{% url 'productos_por_categoria' categoria.id %}">{{ categoria.nombre }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+

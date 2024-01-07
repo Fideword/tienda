@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Categoría</title>
+    <!-- Enlaces a las bibliotecas de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-5">Agregar Categoría</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Agregar Categoría</button>
+        </form>
+        <a href="{% url 'categorias' %}" class="btn btn-secondary mt-3">Volver a Categorías</a>
+    </div>
+</body>
+</html>

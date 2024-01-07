@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Perfil</title>
+    <!-- Agrega los enlaces a las bibliotecas de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Mi Perfil</h2>
+        <p class="lead">Bienvenido, {{ user.username }}</p>
+        <p class="lead">Correo electrónico: {{ user.email }}</p>
+        <p class="lead">Nombre: {{ user.first_name }} {{ user.last_name }}</p>
+
+        <a href="{% url 'categorias' %}" class="btn btn-primary mt-3">Regresar a la página principal</a>
+    </div>
+</body>
+</html>
+
